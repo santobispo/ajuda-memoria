@@ -28,7 +28,7 @@ main {
 main p {
     margin: 5px 0px;
     text-align: justify;
-    text-indent: 20px; 
+    text-indent: 20px;
     line-height: 1.5;
 }
 
@@ -51,8 +51,6 @@ th, td {
     border: 1px solid black;
     padding: 5px;
 }
-
-
 
 .titulo > th {
     background-color: lightgrey;
@@ -112,9 +110,7 @@ footer hr {
 }
 
 ul.lista, ol.lista {
-    margin-top: 10px; 
-    margin-bottom: 10px; 
-    padding-left: 20px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
 }
-
-
