@@ -13,33 +13,47 @@ Grandes Telas: acima de 1200px
 
 /* Pequenas telas */
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
+    main {
+        margin-top: 5px;
     }
-
     main p {
-        text-indent: 10px;
+        text-indent: 0;
+        line-height: 1.2;
+    }
+    header {
+        font-size: 1.2em;
+    }
+    h1 {
+        font-size: 1.2em;
     }
 
 }
 
 /* Celular */
 @media (min-width: 600px) and (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
 
     main p {
         text-indent: 15px;
     }
+
+    main p {
+        text-indent: 0;
+        line-height: 1.2;
+    }
+    header {
+        font-size: 1.2em;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+
 }
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 992px) {
 
     body {
-        width: 100%;
-        padding: 20px
+        max-width: 992px;
     }
     main {
         margin-top: 20px; /* Aumente a margem superior para tablets */
@@ -71,7 +85,6 @@ Grandes Telas: acima de 1200px
         max-width: 992px; /* Defina a largura desejada para a versão desktop */
         margin: 0 auto; /* Centralize o conteúdo horizontalmente */
         margin-top: 40px; /* Ajuste a margem superior para dispositivos desktop */
-
     }
 
     main p {

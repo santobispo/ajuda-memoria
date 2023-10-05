@@ -12,11 +12,13 @@
 }
 
 html {
-    height: 100vh;
+    height: 100%;
 }
 
 body {
     width: 100%;
+    margin: 0;
+    padding: 15px;
 }
 
 main {
@@ -60,8 +62,6 @@ th, td {
 .titulo > header {
     text-align: center;
 }
-
-
 
 header > p {
     padding-top: 10px;
