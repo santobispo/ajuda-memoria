@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+/* Todas as demais mídias */
+
+/* Typical Device Breakpoints 
+-------------------------
+Pequenas telas: até 600px
+Celular: de 600px até 768 px
+Tables: de 768px até 992px
+Desktop: de 992px até 1200px
+Grandes Telas: acima de 1200px
+*/
+
+/* Pequenas telas */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    main p {
+        text-indent: 10px;
+    }
+
+}
+
+/* Celular */
+@media (min-width: 600px) and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    main p {
+        text-indent: 15px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 992px) {
+    body {
+        margin: auto;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    main p {
+        text-indent: 20px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    body {
+        width: 70%; /* Defina a largura desejada para a versão desktop */
+        margin: 0 auto; /* Centralize o conteúdo horizontalmente */
+        margin-top: 40px; /* Ajuste a margem superior para dispositivos desktop */
+    }
+
+    main p {
+        text-indent: 30px; /* Ajuste o recuo de texto para dispositivos desktop */
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .titulo > header {
+        margin-top: 60px; /* Ajuste a margem superior para dispositivos desktop */
+    }
+
+    header > p {
+        padding-top: 20px; /* Ajuste o preenchimento para dispositivos desktop */
+    }
+
+    th > p {
+        text-align: left; /* Alinhe o texto à esquerda para dispositivos desktop */
+    }
+}
+
+
+
+
