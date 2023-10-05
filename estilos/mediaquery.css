@@ -36,33 +36,46 @@ Grandes Telas: acima de 1200px
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 992px) {
-    body {
-        margin: auto;
-    }
 
+    body {
+        width: 100%;
+        padding: 20px
+    }
     main {
-        width: 90%;
+        margin-top: 20px; /* Aumente a margem superior para tablets */
     }
 
     main p {
-        text-indent: 20px;
+        font-size: 1.1em; /* Ajuste o tamanho da fonte para tablets */
+    }
+
+    th, td {
+        padding: 10px; /* Aumente o preenchimento para tablets */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Ajuste o tamanho da fonte para tablets */
+        padding: 5px; /* Aumente o preenchimento para tablets */
+    }
+
+    ul.lista, ol.lista {
+        margin-top: 15px; /* Aumente a margem superior para tablets */
+        margin-bottom: 15px; /* Aumente a margem inferior para tablets */
+        padding-left: 30px; /* Aumente o recuo para tablets */
     }
 }
 
 /* Desktop */
 @media (min-width: 992px) {
     body {
-        width: 70%; /* Defina a largura desejada para a versão desktop */
+        max-width: 992px; /* Defina a largura desejada para a versão desktop */
         margin: 0 auto; /* Centralize o conteúdo horizontalmente */
         margin-top: 40px; /* Ajuste a margem superior para dispositivos desktop */
+
     }
 
     main p {
         text-indent: 30px; /* Ajuste o recuo de texto para dispositivos desktop */
-    }
-
-    table {
-        width: 100%;
     }
 
     .titulo > header {
@@ -76,6 +89,7 @@ Grandes Telas: acima de 1200px
     th > p {
         text-align: left; /* Alinhe o texto à esquerda para dispositivos desktop */
     }
+
 }
 
 

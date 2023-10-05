@@ -16,24 +16,33 @@ html {
 }
 
 body {
-    background-color: white;
-    padding: 10px;
+    width: 100%;
 }
 
 main {
-    width: 100%; /* Full width on mobile */
     margin-top: 10px;
 }
 
 main p {
-    margin: 10px 0px;
+    margin: 5px 0px;
     text-align: justify;
-    text-indent: 20px; /* Reduce text-indent for mobile */
+    text-indent: 20px; 
     line-height: 1.5;
+}
+
+header {
+    text-align: center;
 }
 
 table {
     border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+}
+
+section {
+    width: 100%;
+    overflow-x: auto;
 }
 
 th, td {
@@ -41,13 +50,22 @@ th, td {
     padding: 5px;
 }
 
+
+
+.titulo > th {
+    background-color: lightgrey;
+    color: grey;
+}
+
 .titulo > header {
-    margin-top: 20px; /* Reduce margin for mobile */
     text-align: center;
 }
 
+
+
 header > p {
-    padding-top: 10px; /* Reduce padding for mobile */
+    padding-top: 10px;
+    padding-bottom: 5px;
     text-align: left;
 }
 
@@ -55,4 +73,48 @@ th > p {
     color: gray;
     text-align: right;
 }
+
+thead > tr > th {
+    background-color: lightgray;
+    color: black;
+}
+
+tbody > tr > td {
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 3px;
+}
+
+ol > li, ul > li {
+    margin-top: 9px;
+}
+
+.left {
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    padding-top: 30px;
+}
+
+footer p {
+    display: inline-block;
+    padding: 5px;
+}
+
+footer hr {
+    width: 100%;
+}
+
+ul.lista, ol.lista {
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    padding-left: 20px; 
+}
+
 
