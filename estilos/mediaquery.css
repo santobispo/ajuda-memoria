@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/* Todas as demais mídias */
+
+/* Typical Device Breakpoints 
+-------------------------
+Pequenas telas: até 600px
+Celular: de 600px até 768 px
+Tables: de 768px até 992px
+Desktop: de 992px até 1200px
+Grandes Telas: acima de 1200px
+*/
+
+/* Estilos para diferentes tamanhos de tela */
+
+/* Pequenas telas */
+@media (max-width: 600px) {
+    main {
+        margin-top: 5px;
+    }
+    main p {
+        text-indent: 0;
+        line-height: 1.2;
+    }
+    header {
+        font-size: 1.2em;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+}
+
+/* Celular */
+@media (min-width: 600px) and (max-width: 768px) {
+    main p {
+        text-indent: 15px;
+    }
+    main p {
+        text-indent: 0;
+        line-height: 1.2;
+    }
+    header {
+        font-size: 1.2em;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 992px) {
+    body {
+        max-width: 992px;
+    }
+    main {
+        margin-top: 20px;
+    }
+    main p {
+        font-size: 1.1em;
+    }
+    th, td {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+        padding: 5px;
+    }
+    ul.lista, ol.lista {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding-left: 30px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    body {
+        max-width: 992px;
+        margin: 0 auto; 
+        margin-top: 40px;
+    }
+    main p {
+        text-indent: 30px; 
+    }
+    .titulo > header {
+        margin-top: 60px; 
+    }
+    header > p {
+        padding-top: 20px;
+    }
+    th > p {
+        text-align: left;
+    }
+}
+
+
+
+
