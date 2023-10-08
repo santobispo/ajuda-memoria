@@ -1,187 +1,387 @@
 <!--
-https://ajuda-memoria.vercel.app/
+http://localhost/ajuda-memoria/
 -->
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/style.css" media="all">
-    <title>Ajuda-Memória</title>
-    <link rel="stylesheet" href="estilos/mediaquery.css">
+<title>Ajuda memória v.1.0</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+.card-button {
+	font-size: 24px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
 </head>
-<body>
-    <header>
-        <table>
-                <tr>
-                    <th class="png">
-                        <img src="imagens/372904829_314023741238609_7922288819578218394_n.jpg" alt="logo guetos" width="90" height="90">
-                    </th>
-                    <th colspan="2"><p>Ajuda Memória – Reunião</p><p>Grupo Universitário de Estudos em Tecnologia, Organização e Sociedade - GUETOS</p></th>
-                </tr>
-                <tr class="titulo">
-                    <th>ID_DOC</th>
-                    <th>Assunto</th>
-                    <th>Elaboração</th>
-                </tr>
-            <tbody> 
-                <tr class="l1">
-                    <td>CRDE – 001/2023</td>
-                    <td>Primeira reunião com a coordenação do CRDE</td>
-                    <td>prof. Arnaldo Jesus</td>
-                </tr>
-        </tbody>
-        </table>
-        <p><strong>OBS: Na reunião do CRDE do dia 30/09/2023, foram registrados os seguintes tópicos:</strong></p>
-    </header>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+	<!-- Modal --->
+	<div id="myModal" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<p>Some text in the Modal..</p>
+	  </div>
+	</div>
+	<!--- Fim modal -->
+
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <img src="imagens/am-logo.png" style="width:45%;" class="w3-round"><br><br>
+    <h4><b>Ajuda Memória</b></h4>
+    <p class="w3-text-grey">Inspired in template by W3.CSS</p>
+  </div>
+  <div class="w3-bar-block">
+    <a href="javascript:{}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-edit fa-fw w3-margin-right"></i>Novo docuemento</a> 
+    <a href="javascript:{}" onclick="openModal()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search fa-fw w3-margin-right"></i>Pesquisar</a> 
+    <a href="javascript:{}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file-pdf-o fa-fw w3-margin-right"></i>Gerar PDF</a>
+    <a href="javascript:{}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file-picture-o fa-fw w3-margin-right"></i>Gerar Imagem</a>
+  </div>
+  <div class="w3-panel w3-large">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="panel-header">
+    <a href="javascript:{}"><img src="imagens/372904829_314023741238609_7922288819578218394_n.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a> 
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>Ajuda Memória v.1.0</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Projetos:</span> 
+      <button class="w3-button w3-black">Todos</button>
+      <button class="w3-button w3-white"><i class="fa fa-university w3-margin-right"></i>CIM</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-video-camera w3-margin-right"></i>RF</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-thermometer w3-margin-right"></i>CRDE</button>
+    </div>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="imagens/thunb.png" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>CRDE - 30-09-2023</b></p>
+        <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+        <div class='card-button'>
+			<a href='am.html' target='_blank' alt='Visualizar o documento'><i class='fa fa-eye' style='color: blue;'></i></a>&nbsp;
+			<a href='imagens/thunb.png' target='_blank' ><i class='fa fa-file-image-o' alt='Gerar imagem' style='color: #10E4EC;'></i></a>&nbsp;
+			<a href='am.html?doPDF=1' target='_blank' ><i class='fa fa-file-pdf-o' alt='Gerar PDF' style='color: #FF0000;'></i></a>&nbsp;
+			<i class='fa fa-edit' onclick='alert("Editar")' style='color: #A52A2A;'></i>&nbsp;
+			<i class='fa fa-clone' onclick='alert("Gerar cópia")' style='color: orange;'></i>&nbsp;
+        </div>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="imagens/thunb.png" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>CRDE - 30-09-2023</b></p>
+        <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="imagens/thunb.png" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>CRDE - 30-09-2023</b></p>
+        <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="imagens/thunb.png" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>CRDE - 30-09-2023</b></p>
+        <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="imagens/thunb.png" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>CRDE - 30-09-2023</b></p>
+        <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="imagens/thunb.png" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>CRDE - 30-09-2023</b></p>
+        <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+
+  <!-- Images of Me 
+  <div class="w3-row-padding w3-padding-16" id="about">
+    <div class="w3-col m6">
+      <img src="/w3images/avatar_g.jpg" alt="Me" style="width:100%">
+    </div>
+    <div class="w3-col m6">
+      <img src="/w3images/me2.jpg" alt="Me" style="width:100%">
+    </div>
+  </div>
+
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>About Me</b></h4>
+    <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of CRDE - 30-09-2023 and mauris neque quam blog. I want to share my world with you. Resumo da reunião, especificar o número de caracteres que será exibido no card. Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+    <hr>
     
-    <main>
-        <article>
-            <section>
-                <h1>1. Dados da reuniao</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col" >Data</th>
-                            <th scope="col">Hora de início</th>
-                            <th scope="col">Hora de término</th>
-                            <th scope="col">Local</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>30/09/2023</strong></td>
-                            <td><strong>09:00</strong></td>
-                            <td><strong>12:00</strong></td>
-                            <td><strong>UCSal - Campus de Pituaçu, bloco B sala 311b</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-                
-            <section>
-                <h1>2. Pauta</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col" >Item</th>
-                            <th scope="col" >Descrição</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>1</strong></td>
-                            <td class="left">Apresentação do grupo para a coordenadora do CRDE</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2</strong></td>
-                            <td class="left">Apresentação do protótipo do webApp crde-salvador</td>
-                        </tr>
-                        <tr>
-                            <td><strong>3</strong></td>
-                            <td class="left">Apresentação de apps de referência de conhecimento da coordenação do CRDE</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+    <h4>Technical Skills</h4>
+    <!-- Progress bars / Skills 
+    <p>Photography</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:95%">95%</div>
+    </div>
+    <p>Web Design</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:85%">85%</div>
+    </div>
+    <p>Photoshop</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+    </div>
+    <p>
+      <button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
+        <i class="fa fa-download w3-margin-right"></i>Download Resume
+      </button>
+    </p>
+    <hr>
+    
+    <h4>How much I charge</h4>
+    <!-- Pricing Tables 
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Photography</li>
+          <li class="w3-padding-16">1GB Storage</li>
+          <li class="w3-padding-16">Mail Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 10</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-teal w3-xlarge w3-padding-32">Pro</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Photography</li>
+          <li class="w3-padding-16">50GB Storage</li>
+          <li class="w3-padding-16">Endless Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 25</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="w3-third">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Photography</li>
+          <li class="w3-padding-16">Unlimited Storage</li>
+          <li class="w3-padding-16">Endless Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 25</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contact Section 
+  <div class="w3-container w3-padding-large w3-grey">
+    <h4 id="contact"><b>Contact Me</b></h4>
+    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
+      <div class="w3-third w3-dark-grey">
+        <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
+        <p>email@email.com</p>
+      </div>
+      <div class="w3-third w3-teal">
+        <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
+        <p>Chicago, US</p>
+      </div>
+      <div class="w3-third w3-dark-grey">
+        <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
+        <p>512312311</p>
+      </div>
+    </div>
+    <hr class="w3-opacity">
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+    </form>
+  </div>
 
-            <section>
-                <h1>3. Participantes</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col" >Nome</th>
-                            <th scope="col">Instituição</th>
-                            <th scope="col" >E-mail</th>
-                            <th scope="col">Telefone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="left">ARNALDO BISPO DE JESUS</td>
-                            <td>UCSal</td>
-                            <td>arnaldo.jesus@ucsal.br</td>
-                            <td>71 99203-2801</td>
-                        </tr>
-                        <tr>
-                            <td class="left">JANICE ASSUNÇÃO OLIVEIRA</td>
-                            <td>CRDE-Salvador</td>
-                            <td>janiveira@hotmail.com</td>
-                            <td>71 99154-3291</td>
-                        </tr>
-                        <tr>
-                            <td class="left">GIOVANNA MENDONÇA FEDERICO</td>
-                            <td>UCsal</td>
-                            <td>giovanna.federico@ucsal.edu.br</td>
-                            <td>71 99299-3058</td>
-                        </tr>
-                            <td class="left">ERIC ADAM SILVA DE OLIVEIRA</td>
-                            <td>UCsal</td>
-                            <td>ericadam.oliveira@ucsal.edu.br</td>
-                            <td>71 98897-4404</td>
-                        </tr>
-                        <tr>
-                            <td class="left">GABRIEL DE ABREU FARIAS AZEVEDO</td>
-                            <td>UCsal</td>
-                            <td>gabriel.azevedo@ucsal.edu.br</td>
-                            <td>71 99210-5078</td>
-                        </tr>
-                        <tr>
-                            <td class="left">ISAAC RAMOS OLIVEIRA DE JESUS</td>
-                            <td>UCsal</td>
-                            <td>isaac.jesus@ucsal.edu.br</td>
-                            <td>71 99244-5276</td>
-                        </tr>
-                        <tr>
-                            <td class="left">VICTOR AUGUSTO LIGER OLIVEIRA SIMÕES</td>
-                            <td>UCsal</td>
-                            <td>victoraugusto.simoes@ucsal.edu.br</td>
-                            <td>71 99177-8369</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+  <!-- Footer 
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Resumo da reunião, especificar o número de caracteres que será exibido no card.</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Lorem</span><br>
+          <span>Sed mattis nunc</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Ipsum</span><br>
+          <span>Praes tinci sed</span>
+        </li> 
+      </ul>
+    </div>
 
-            <section>
-                <h1>4. Contextualização</h1>
-                <p>A reunião teve como objetivos aprensentar o grupo de pesquisa à coordenação do CRDE-Salvador e discutir a primeira proposta de estruturação da solução tecnológica que será desenvolvida para o projeto.</p>
-            </section>
+    <div class="w3-third">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">London</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">DIY</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Family</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Shopping</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Games</span>
+      </p>
+    </div>
 
-            <section>
-                <h1>5. Tópicos abordados</h1>
-                <ul class="lista">
-                    <li>Como está estruturado o grupo de pesquisa.</li>
-                    <li>Qual o entendimento preliminar do grupo sobre as demandas do CRDE-Salvador.</li>
-                    <li>Visão do CRDE sobre a participação do GUETOS no projeto.</li>
-                    <li>Visão do CRDE de como a inteligência computacional pode apoiar suas ações.</li>
-                </ul>
-            </section>
+  </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
 
-            <section>
-                <h1>6. Encamihamentos</h1>
-                <p>Janice ira encaminhar para o GUETOS a paletas de cores oficial do CRDE.</p>
-                <p>GUETOS irá ajustar a logomarca para que contenha a denominação de Salvador e não de BH.</p>
-                <p>Indicadores e controle de visibilidade (Familia, equipe CRDE, especialistas, público geral)</p>
-                <p>Discutir Termo de uso (regras da plataforma) e política de privacidade (Tratamento dos dados) </p>
-                <p>Janice irá enviar as tabelas de dados para conhecimento do grupo (TACO, TBCA e IBGE) </p>
-            </section>
+<!-- End page content -->
+</div>
 
-            <section>
-                <h1>7. Ações Propostas</h1>
-                <ol type="1" class="lista">
-                    <li>Apresentação na SEMOC "Diabetes nas escolas municipais de Salvador"</li>
-                    <li>Definir modelo de interação e levantamento de requisitos</li>
-                    <li>Próxima reunião 21/10/2023 ou após apresentação na SEMOC</li>
-                </ol>
-            </section>
-        <article>
-    </main>
+<script>
+	var modal = document.getElementById("myModal");
+	
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
 
-    <footer>
-        <hr>
-        <p>Elaborado em 02-10-2023</p>
-        <p>Emitido em 02-10-2023</p>
-        <p>Versão 1.0</p>
-    </footer>
+function closeModal () {
+ 	modal.style.display='none';
+}
+
+function openModal () {
+ 	modal.style.display='block';
+	w3_close();
+}
+
+</script>
+
 </body>
 </html>
